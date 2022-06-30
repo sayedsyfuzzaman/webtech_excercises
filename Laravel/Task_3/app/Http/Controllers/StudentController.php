@@ -59,4 +59,20 @@ class StudentController extends Controller
         $students = Student::all();
         return view('dashboard')->with("students", $students);
     }
+
+    public function StudentEdit(Request $request){
+        $student = Student::where("id", $request->id)->first();
+        //select * from students where id = '1'
+        return view('editStudent')->with('std', $student);
+    }
+
+    public function StudentEditSubmitted(Request $request){
+
+        Student::where('id', $request->id)->update([
+            'name' => $request->name,
+            'password' => $request->pass
+        ]);
+
+        return redirect()->route('StudentDash');
+    }
 }

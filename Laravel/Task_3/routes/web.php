@@ -21,3 +21,7 @@ Route::get('/login', [StudentController::class, 'StudentLogin'])->name("StudentL
 Route::post('/login', [StudentController::class, 'StudentLoginSubmitted'])->name('StudentLoginSubmitted');
 
 Route::get('/dashboard', [StudentController::class, 'StudentDash'])->name("StudentDash");
+
+
+Route::get('/student/edit/{id}', [StudentController::class, 'StudentEdit'])->name("StudentEdit");
+Route::post('/student/edit/{id}', [StudentController::class, 'StudentEditSubmitted'])->name("StudentEditSubmitted");
